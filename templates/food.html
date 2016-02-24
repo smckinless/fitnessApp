@@ -1,0 +1,63 @@
+{% include 'base.html' %}
+
+{% block content %}
+<body>
+	<div class="title">
+			<p>My Nutrition</p>
+		</div>
+	<div class="top">
+
+		<div id="container" style="width:100%%; height:400px;"></div>
+	</div>
+	<div class="bottom">	
+		<p>Enter a meal!</p>
+		<div class="foodForm">
+			<form action="/food" method="POST">
+				<div><input type="text" name="meal" placeholder="What meal was this?"></input></div>
+				<div><input type="number" name="total_calories" placeholder="Total calories"></input></div>
+				<div><input type="date" name="date" placeholder="When was this meal?"></input></div>
+				<input type="submit" value="Enter"></input>
+			</form>
+		</div>
+	</div>
+
+	<script>
+		
+		$(function () {
+			var dates = {{ listOfDates|tojson|safe }}
+			var meals = {{ listOfEatenMeals|tojson|safe }}
+			var calories = {{ listOfCalories|tojson|safe }}
+			var caloriesFinal = []
+
+			for (object in calories) {
+				caloriesFinal.push(parseInt(calories[object]));
+			}
+			
+		    $('#container').highcharts({
+		        chart: {
+		            type: 'line'
+		        },
+		        title: {
+		            text: 'Food Consumption Today'
+		        },
+		        xAxis: {
+		            categories: [String(meals[meals.length - 3]) + " " + String(dates[dates.length - 3]), 
+		            meals[1] + " " + dates[1], 
+		            meals[2] + " " + dates[2]]
+		        },
+		        yAxis: {
+		            title: {
+		                text: 'Calories eaten'
+		            }
+		        },
+		        series: [{
+		            name: 'Steven',
+		            data: [caloriesFinal[0], 
+		            caloriesFinal[1], 
+		            caloriesFinal[2]]
+		        }]
+		    });
+		});
+	</script>
+</body>
+{% endblock %}

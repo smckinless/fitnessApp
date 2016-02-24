@@ -1,0 +1,12 @@
+{% include 'base.html' %}
+
+{% block content %}
+<p>My Workouts</p>
+
+<form action="/workouts" method="post" name="workouts">
+	{{ form.reps }}
+	{{ form.length }}
+	<p><input type="submit" value="Enter"></input></p>
+</form>
+
+{% endblock %}

@@ -1,0 +1,60 @@
+body {
+	margin: 0;
+}
+
+.title {
+	margin: 0 auto;
+	width: 50%;
+	text-align: center;
+}
+
+.top {
+	float: left;
+	width: 60%;
+}
+
+.title p {
+	font-size: 75px;
+}
+
+.button {
+	width: 250px;
+	height: 100px;
+	background-color: yellow;
+}
+
+.foodForm form input {
+	margin-left: 5%;
+}
+
+.foodForm form input, .foodForm form p {
+	display: inline-block;
+	padding: 25px;
+	font-size: 25px;
+}
+
+.foodForm form p {
+	
+}
+
+.foodForm form {
+	margin: 0 auto;
+	text-align: center;
+	width: 350px;
+}
+
+.foodForm {
+	margin: 0 auto;
+	text-align: center;
+}
+
+.bottom {
+	width: 40%;
+	text-align: center;
+	float: right;
+}
+
+.bottom p {
+	font-size: 42px;
+	font: sans-serif;
+}
